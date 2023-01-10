@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="500.000000dp"
+    android:height="500.000000dp"
+    android:viewportWidth="500.000000"
+    android:viewportHeight="500.000000">
+
+    <group
+        android:translateY="500.000000"
+        android:scaleX="0.100000"
+        android:scaleY="-0.100000">
+        <path
+            android:fillColor="@color/icons_color"
+            android:strokeWidth="1"
+            android:pathData="M2861 3339 c-60 -10 -125 -38 -158 -67 -82 -72 -85 -202 -5 -258 40 -28 107 -45 297 -78 278 -48 340 -81 340 -179 0 -70 -22 -99 -103 -139 -61 -30 -76 -33 -178 -37 -61 -1 -135 2 -165 8 -121 25 -231 103 -266 187 -19 47 -21 48 -42 35 -25 -16 7 -81 73 -146 48 -46 78 -66 133 -87 171 -66 392 -54 515 27 77 51 104 165 58 241 -38 61 -116 90 -348 130 -225 39 -252 47 -292 80 -80 67 -28 187 100 229 40 13 76 16 153 13 124 -5 192 -32 262 -104 40 -41 48 -45 61 -33 12 13 10 20 -17 52 -82 100 -261 154 -418 126z" />
+        <path
+            android:fillColor="@color/icons_color"
+            android:strokeWidth="1"
+            android:pathData="M1650 2940 l0 -380 243 0 c264 0 337 10 425 54 68 34 119 87 151 155 23 50 26 68 26 171 0 103 -3 121 -26 171 -32 68 -83 121 -151 155 -88 44 -161 54 -425 54 l-243 0 0 -380z m510 329 c134 -21 226 -84 272 -184 18 -41 23 -67 23 -145 0 -78 -5 -104 -23 -145 -46 -100 -138 -163 -272 -184 -36 -6 -156 -11 -267 -11 l-203 0 0 340 0 340 203 0 c111 0 231 -5 267 -11z" />
+        <path
+            android:fillColor="@color/icons_color"
+            android:strokeWidth="1"
+            android:pathData="M2888 2148 c-32 -11 -44 -37 -24 -56 7 -8 36 -18 62 -23 61 -11 76 -25 50 -45 -28 -20 -69 -17 -100 7 -19 15 -26 17 -26 6 0 -38 121 -50 144 -14 18 28 -5 51 -62 62 -60 12 -69 19 -52 40 16 19 59 19 88 -1 12 -8 22 -11 22 -6 0 26 -60 44 -102 30z" />
+        <path
+            android:fillColor="@color/icons_color"
+            android:strokeWidth="1"
+            android:pathData="M990 2075 l0 -75 65 0 c57 0 69 3 90 25 14 13 25 36 25 50 0 14 -11 37 -25 50 -21 22 -33 25 -90 25 l-65 0 0 -75z m144 39 c9 -8 16 -26 16 -39 0 -39 -25 -55 -86 -55 l-54 0 0 55 0 55 54 0 c36 0 60 -5 70 -16z" />
+        <path
+            android:fillColor="@color/icons_color"
+            android:strokeWidth="1"
+            android:pathData="M1360 2075 c0 -43 4 -75 10 -75 6 0 10 14 10 30 0 29 2 30 44 30 39 0 45 -3 56 -30 12 -29 50 -43 50 -19 0 5 -4 8 -10 4 -5 -3 -16 7 -24 23 -13 26 -13 29 5 40 25 16 24 48 0 62 -11 5 -47 10 -80 10 l-61 0 0 -75z m135 30 c0 -17 -8 -20 -57 -23 -57 -3 -58 -2 -58 23 0 25 1 26 58 23 49 -3 57 -6 57 -23z" />
+        <path
+            android:fillColor="@color/icons_color"
+            android:strokeWidth="1"
+            android:pathData="M1720 2075 c0 -43 4 -75 10 -75 6 0 10 32 10 75 0 43 -4 75 -10 75 -6 0 -10 -32 -10 -75z" />
+        <path
+            android:fillColor="@color/icons_color"
+            android:strokeWidth="1"
+            android:pathData="M1957 2075 c21 -41 43 -75 49 -75 13 0 89 139 80 147 -8 8 -9 7 -46 -67 l-33 -64 -33 67 c-19 37 -39 67 -44 67 -5 0 7 -34 27 -75z" />
+        <path
+            android:fillColor="@color/icons_color"
+            android:strokeWidth="1"
+            android:pathData="M2280 2075 l0 -75 76 0 c47 0 73 4 69 10 -3 6 -33 10 -66 10 -56 0 -59 1 -59 25 0 24 3 25 61 25 37 0 58 4 54 10 -3 6 -31 10 -61 10 -47 0 -54 2 -54 20 0 18 7 20 60 20 33 0 60 4 60 10 0 6 -30 10 -70 10 l-70 0 0 -75z" />
+        <path
+            android:fillColor="@color/icons_color"
+            android:strokeWidth="1"
+            android:pathData="M3223 2078 c-38 -69 -48 -109 -16 -60 21 31 107 32 123 2 6 -11 15 -20 21 -20 13 0 -62 143 -77 147 -7 2 -30 -29 -51 -69z m87 -20 c0 -5 -18 -8 -40 -8 -22 0 -40 3 -40 6 0 4 10 22 22 42 l21 35 18 -34 c10 -19 18 -37 19 -41z" />
+        <path
+            android:fillColor="@color/icons_color"
+            android:strokeWidth="1"
+            android:pathData="M3540 2075 c0 -43 4 -75 10 -75 6 0 10 16 10 35 l0 34 58 4 57 3 -57 2 c-55 2 -58 3 -58 27 0 24 3 25 60 25 33 0 60 4 60 10 0 6 -30 10 -70 10 l-70 0 0 -75z" />
+        <path
+            android:fillColor="@color/icons_color"
+            android:strokeWidth="1"
+            android:pathData="M3870 2075 l0 -75 70 0 c40 0 70 4 70 10 0 6 -28 10 -65 10 -63 0 -65 1 -65 25 0 24 3 25 60 25 33 0 60 4 60 10 0 6 -27 10 -60 10 -53 0 -60 2 -60 20 0 18 7 20 65 20 37 0 65 4 65 10 0 6 -30 10 -70 10 l-70 0 0 -75z" />
+    </group>
+</vector>

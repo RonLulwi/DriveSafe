@@ -7,7 +7,7 @@
 
     <group>
         <path
-            android:fillColor="#bed0ac"
+            android:fillColor="@color/icons_color"
             android:pathData="M1 6.32617a2.0001 2.0001 0 0 1 2-2h26a2 2 0 1 1 0 4h-26a2.0001 2.0001 0 0 1 -2-2zm28 7.67383h-26a2 2 0 0 0 0 4h26a2 2 0 0 0 0-4zm0 9.67383h-26a2 2 0 0 0 0 4h26a2 2 0 0 0 0-4z" />
     </group>
 </vector>

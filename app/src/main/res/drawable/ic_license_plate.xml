@@ -8,49 +8,49 @@
     <group>
         <group>
             <path
-                android:strokeColor="#bed0ac"
+                android:strokeColor="@color/icons_color"
                 android:strokeWidth="12"
                 android:strokeLineJoin="round"
                 android:strokeMiterLimit="10"
                 android:strokeLineCap="round"
                 android:pathData="M291,146h183.5c16.569,0,30,13.431,30,30v106.192" />
             <path
-                android:strokeColor="#bed0ac"
+                android:strokeColor="@color/icons_color"
                 android:strokeWidth="12"
                 android:strokeLineJoin="round"
                 android:strokeMiterLimit="10"
                 android:strokeLineCap="round"
                 android:pathData="M504.5,317.192V336c0,16.569-13.431,30-30,30h-437c-16.569,0-30-13.431-30-30V176c0-16.569,13.431-30,30-30H256" />
             <path
-                android:strokeColor="#bed0ac"
+                android:strokeColor="@color/icons_color"
                 android:strokeWidth="12"
                 android:strokeLineJoin="round"
                 android:strokeMiterLimit="10"
                 android:strokeLineCap="round"
                 android:pathData="M 37.5 210.801 L 37.5 176 L 474.5 176 L 474.5 336 L 37.5 336 L 37.5 245.801 " />
             <path
-                android:strokeColor="#bed0ac"
+                android:strokeColor="@color/icons_color"
                 android:strokeWidth="12"
                 android:strokeLineJoin="round"
                 android:strokeMiterLimit="10"
                 android:strokeLineCap="round"
                 android:pathData="M 67.5 206 C 67.5 206 67.5 206 67.5 206 C 67.5 206 67.5 206 67.5 206 C 67.5 206 67.5 206 67.5 206 C 67.5 206 67.5 206 67.5 206 Z" />
             <path
-                android:strokeColor="#bed0ac"
+                android:strokeColor="@color/icons_color"
                 android:strokeWidth="12"
                 android:strokeLineJoin="round"
                 android:strokeMiterLimit="10"
                 android:strokeLineCap="round"
                 android:pathData="M 67.5 306 C 67.5 306 67.5 306 67.5 306 C 67.5 306 67.5 306 67.5 306 C 67.5 306 67.5 306 67.5 306 C 67.5 306 67.5 306 67.5 306 Z" />
             <path
-                android:strokeColor="#bed0ac"
+                android:strokeColor="@color/icons_color"
                 android:strokeWidth="12"
                 android:strokeLineJoin="round"
                 android:strokeMiterLimit="10"
                 android:strokeLineCap="round"
                 android:pathData="M 444.5 206 C 444.5 206 444.5 206 444.5 206 C 444.5 206 444.5 206 444.5 206 C 444.5 206 444.5 206 444.5 206 C 444.5 206 444.5 206 444.5 206 Z" />
             <path
-                android:strokeColor="#bed0ac"
+                android:strokeColor="@color/icons_color"
                 android:strokeWidth="12"
                 android:strokeLineJoin="round"
                 android:strokeMiterLimit="10"
@@ -59,14 +59,14 @@
             <group>
                 <group>
                     <path
-                        android:strokeColor="#bed0ac"
+                        android:strokeColor="@color/icons_color"
                         android:strokeWidth="12"
                         android:strokeLineJoin="round"
                         android:strokeMiterLimit="10"
                         android:strokeLineCap="round"
                         android:pathData="M84.594,283.5l20.531-53.909c0.25-0.657,0.88-1.091,1.584-1.091l0,0c0.705,0,1.336,0.437,1.585,1.096l20.343,53.904" />
                     <path
-                        android:strokeColor="#bed0ac"
+                        android:strokeColor="@color/icons_color"
                         android:strokeWidth="12"
                         android:strokeLineJoin="round"
                         android:strokeMiterLimit="10"
@@ -75,7 +75,7 @@
                 </group>
                 <group>
                     <path
-                        android:strokeColor="#bed0ac"
+                        android:strokeColor="@color/icons_color"
                         android:strokeWidth="12"
                         android:strokeLineJoin="round"
                         android:strokeMiterLimit="10"
@@ -91,7 +91,7 @@
                 </group>
                 <group>
                     <path
-                        android:strokeColor="#bed0ac"
+                        android:strokeColor="@color/icons_color"
                         android:strokeWidth="12"
                         android:strokeLineJoin="round"
                         android:strokeMiterLimit="10"
@@ -100,7 +100,7 @@
                 </group>
                 <group>
                     <path
-                        android:strokeColor="#bed0ac"
+                        android:strokeColor="@color/icons_color"
                         android:strokeWidth="12"
                         android:strokeLineJoin="round"
                         android:strokeMiterLimit="10"
@@ -109,7 +109,7 @@
                 </group>
                 <group>
                     <path
-                        android:strokeColor="#bed0ac"
+                        android:strokeColor="@color/icons_color"
                         android:strokeWidth="12"
                         android:strokeLineJoin="round"
                         android:strokeMiterLimit="10"
@@ -118,14 +118,14 @@
                 </group>
                 <group>
                     <path
-                        android:strokeColor="#bed0ac"
+                        android:strokeColor="@color/icons_color"
                         android:strokeWidth="12"
                         android:strokeLineJoin="round"
                         android:strokeMiterLimit="10"
                         android:strokeLineCap="round"
                         android:pathData="M 388.715 228.5 L 427.406 283.5" />
                     <path
-                        android:strokeColor="#bed0ac"
+                        android:strokeColor="@color/icons_color"
                         android:strokeWidth="12"
                         android:strokeLineJoin="round"
                         android:strokeMiterLimit="10"
