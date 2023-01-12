@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="icons_color">#BED0AC</color>
     <color name="backGround">#09313E</color>
-    <color name="my_green">#00FFC2</color>
+    <color name="my_green">#9C00FFC2</color>
     <color name="my_red">#D65A5A</color>
+    <color name="logo_color">#C5C5C5</color>
 </resources>
