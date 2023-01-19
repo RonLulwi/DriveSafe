@@ -69,11 +69,32 @@
             />
 
 
+                <TextView
+                    android:id="@+id/login_LBL_signup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dont have account yet?"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#99BED0AC"
+                    android:layout_below="@id/login_BTN_login"/>
+
+                <TextView
+                    android:id="@+id/login_BTN_signup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="13sp"
+                    android:text="  Click Here"
+                    android:textColor="@color/my_green"
+                    android:layout_toEndOf="@id/login_LBL_signup"
+                    android:layout_alignBottom="@id/login_LBL_signup"
+                    />
+
         <TextView
             android:id="@+id/login_LBL_fingerprint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="place your finger print"
+            android:text="place your finger here"
             android:textColor="@color/icons_color"
             android:layout_centerHorizontal="true"
             android:textSize="18sp"
@@ -84,10 +105,13 @@
             android:id="@+id/login_IMG_fingerprint"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/ic_finger_print"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="20dp"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/ic_finger_print" />
 
     </RelativeLayout>
 
@@ -99,3 +123,17 @@
     </LinearLayout>
 
 </LinearLayout>
+
+
+
+<!--<ImageView-->
+<!--android:id="@+id/login_IMG_fingerprint"-->
+<!--android:layout_width="100dp"-->
+<!--android:layout_height="100dp"-->
+<!--android:layout_alignParentBottom="true"-->
+<!--android:layout_centerHorizontal="true"-->
+<!--android:layout_marginStart="20dp"-->
+<!--android:layout_marginTop="20dp"-->
+<!--android:layout_marginEnd="20dp"-->
+<!--android:layout_marginBottom="20dp"-->
+<!--android:src="@drawable/ic_finger_print" />-->

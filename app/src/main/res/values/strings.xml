@@ -1,4 +1,31 @@
 <resources>
     <string name="app_name">DriveSafe</string>
     <string name="app_logo_name">DRIVE SAFE</string>
+    <string name="app_logo_signup">SIGN UP</string>
+    <string name="manufacture">Manufacture</string>
+    <string name="car_model">Car Model</string>
+    <string name="manufacture_year">Manufacture Year</string>
+    <string-array name="manufacture">
+        <item>HONDA</item>
+        <item>BMW</item>
+        <item>KIA</item>
+        <item>TESLA</item>
+        <item>FORD</item>
+    </string-array>
+
+    <string-array name="carModel">
+        <item>RAV 4</item>
+        <item>Q3</item>
+        <item>M3</item>
+        <item>OCTAVIA</item>
+        <item>RIO</item>
+    </string-array>
+
+    <string-array name="manufactureYear">
+        <item>2022</item>
+        <item>2021</item>
+        <item>2020</item>
+        <item>2019</item>
+        <item>2018</item>
+    </string-array>
 </resources>

@@ -5,6 +5,8 @@ import androidx.appcompat.widget.AppCompatEditText;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.Window;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -14,10 +16,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private AppCompatEditText login_EDT_email, login_EDT_password;
     private MaterialButton login_BTN_login;
+    private TextView login_BTN_signup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
 
         findViews();
@@ -29,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         login_EDT_email = findViewById(R.id.login_EDT_email);
         login_EDT_password = findViewById(R.id.login_EDT_password);
         login_BTN_login = findViewById(R.id.login_BTN_login);
+        login_BTN_signup = findViewById(R.id.login_BTN_signup);
     }
 
     private void initViews() {
@@ -36,7 +41,13 @@ public class LoginActivity extends AppCompatActivity {
             if (validateEmailAndPassword() && checkUser())
                 performLogin();
         });
+        login_BTN_signup.setOnClickListener(view -> {
+            if (checkUser())
+                gotoSignup();
+        });
     }
+
+
 
     private boolean checkUser() {
         // TODO check if user exist in DB
@@ -62,6 +73,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private void performLogin() {
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    private void gotoSignup() {
+        Intent intent = new Intent(this, SignupActivity.class);
         startActivity(intent);
         finish();
     }
