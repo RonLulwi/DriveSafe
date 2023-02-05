@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ThirdSignupPageFragments"
+    tools:context=".Signup.FragmentsSignupPage01"
     android:background="@color/backGround">
 
     <LinearLayout
@@ -36,27 +36,49 @@
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_step_undone"/>
-                <ImageView
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:src="@drawable/ic_step_undone" />
-                <ImageView
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
                     android:src="@drawable/ic_step_done"/>
 
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_step_undone"/>
 
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_step_undone"/>
 
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/login_EDT_userName"
+                android:id="@+id/login_EDT_firstName"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:hint="User Name"
+                android:hint="First Name"
+                android:textColorHint="#99BED0AC"
+                android:textColor="@color/icons_color"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/login_EDT_lastName"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:hint="Last Name"
+                android:textColorHint="#99BED0AC"
+                android:textColor="@color/icons_color"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/login_EDT_address"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:hint="Address"
                 android:textColorHint="#99BED0AC"
                 android:layout_margin="10dp"
                 android:textColor="@color/icons_color"
@@ -65,7 +87,7 @@
                 />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/signup_second_EDT_password"
+                android:id="@+id/login_EDT_city"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:hint="City"
@@ -75,25 +97,16 @@
                 android:layout_weight="1"
                 />
 
-
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/login_EDT_confirmPassword"
+                android:id="@+id/login_EDT_email"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:hint="Confirm Password"
+                android:hint="Email"
                 android:textColorHint="#99BED0AC"
                 android:textColor="@color/icons_color"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
 
         </LinearLayout>
 

@@ -12,6 +12,8 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">#09313E</item>
         <!-- Customize your theme here. -->
+
+        <item name="android:popupMenuStyle">@style/popupBGStyle</item>
     </style>
 
 
@@ -20,12 +22,13 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.DriveSafe.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.DriveSafe.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
-    <style name="Theme.DriveSafe.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.DriveSafe.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
-
-
+    <style name="popupBGStyle" parent="Widget.MaterialComponents.PopupMenu">
+        <item name="android:popupBackground">@drawable/menu_background</item>
+    </style>
 
 
 

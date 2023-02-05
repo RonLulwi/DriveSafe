@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Window;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.drivesafe.Signup.SignupActivity;
 
 public class LottieActivity extends AppCompatActivity {
     private LottieAnimationView lottie_view;

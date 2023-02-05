@@ -1,4 +1,4 @@
-package com.example.drivesafe;
+package com.example.drivesafe.Signup;
 
 import android.os.Bundle;
 
@@ -8,13 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class FirstSignupPageFragments extends Fragment {
+import com.example.drivesafe.R;
+
+
+public class FragmentsSignupPage03 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_first_signup_page, container, false);
+        View view = inflater.inflate(R.layout.fragments_signup_page_03, container, false);
         return view;
     }
 }

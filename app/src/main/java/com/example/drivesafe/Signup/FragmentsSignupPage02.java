@@ -1,7 +1,5 @@
-package com.example.drivesafe;
+package com.example.drivesafe.Signup;
 
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,11 +11,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Spinner;
-import android.widget.TextView;
+
+import com.example.drivesafe.R;
 
 
-public class SecondSignupPageFragments extends Fragment {
+public class FragmentsSignupPage02 extends Fragment {
 
     private AutoCompleteTextView signup_second_DRD_manufacture, signup_second_DRD_manufactureYear, signup_second_DRD_carModel;
     private String[] manufacture, manufactureYear, carModel;
@@ -25,7 +23,7 @@ public class SecondSignupPageFragments extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_second_signup_page, container, false);
+        View view = inflater.inflate(R.layout.fragments_signup_page_02, container, false);
 
         findViews(view);
         initViews();

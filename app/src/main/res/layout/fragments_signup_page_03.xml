@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondSignupPageFragments"
+    tools:context=".Signup.FragmentsSignupPage03"
     android:background="@color/backGround">
 
     <LinearLayout
@@ -37,27 +37,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:src="@drawable/ic_step_undone"/>
-
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_step_undone" />
                 <ImageView
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:src="@drawable/ic_step_done"/>
 
-                <ImageView
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:src="@drawable/ic_step_undone"/>
+
 
             </LinearLayout>
 
-
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/login_EDT_carLicenseNumber"
+                android:id="@+id/login_EDT_userName"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:hint="Car License Number"
+                android:hint="User Name"
                 android:textColorHint="#99BED0AC"
                 android:layout_margin="10dp"
                 android:textColor="@color/icons_color"
@@ -65,71 +64,36 @@
 
                 />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/signup_second_"
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/signup_second_EDT_password"
                 android:layout_width="match_parent"
-                android:layout_height="15dp"
-                android:layout_weight="1"
-                android:hint="@string/manufacture"
+                android:layout_height="0dp"
+                android:hint="City"
                 android:textColorHint="#99BED0AC"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                android:textColor="@color/icons_color"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                />
 
 
-                <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                    android:id="@+id/signup_second_DRD_manufacture"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="none"
-                    android:textColor="#99BED0AC"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/login_EDT_confirmPassword"
                 android:layout_width="match_parent"
-                android:layout_height="15dp"
-                android:layout_weight="1"
-                android:hint="@string/car_model"
+                android:layout_height="0dp"
+                android:hint="Confirm Password"
                 android:textColorHint="#99BED0AC"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-
-
-                <AutoCompleteTextView
-                    android:id="@+id/signup_second_DRD_carModel"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="none"
-                    android:textColor="#99BED0AC"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="15dp"
+                android:textColor="@color/icons_color"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:hint="@string/manufacture_year"
-                android:textColorHint="#99BED0AC"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-
-
-                <AutoCompleteTextView
-                    android:id="@+id/signup_second_DRD_manufactureYear"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="none"
-                    android:textColor="#99BED0AC"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
+                />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
-
-
-            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
 
         </LinearLayout>
 
