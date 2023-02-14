@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="16dp"
+    app:cardElevation="12dp"
+    app:cardCornerRadius="40dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#CC09313E">
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/recyclerView_LBL_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_centerVertical="true"
+            android:text="22:00"
+            android:textColor="@color/icons_color"
+            android:fontFamily="@font/redhatdisplay"
+            android:textSize="20sp"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/recyclerView_LBL_devider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/recyclerView_LBL_from"
+            android:layout_centerVertical="true"
+            android:text=" - "
+            android:textColor="@color/icons_color"
+            android:fontFamily="@font/redhatdisplay"
+            android:textSize="20sp"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/recyclerView_LBL_until"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/recyclerView_LBL_devider"
+            android:layout_centerVertical="true"
+            android:text="02:00"
+            android:textColor="@color/icons_color"
+            android:fontFamily="@font/redhatdisplay"
+            android:textSize="20sp"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/recyclerView_LBL_textDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mon, sep 23"
+            android:textColor="@color/icons_color"
+            android:fontFamily="@font/redhatdisplay"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/recyclerView_RBTN_onof"
+            android:textSize="20sp"/>
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/recyclerView_RBTN_onof"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_alignParentEnd="true" />
+
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

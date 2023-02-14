@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
-    xmlns:android="http://schemas.android.com/apk/res/android">
-        <item
-            android:id="@+id/menu_account"
-            android:icon="@drawable/ic_profile"
-            android:title="My Account"/>
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <item
-            android:id="@+id/menu_scheduler"
-            android:icon="@drawable/ic_calender"
-            android:title="Activation Scheduler"/>
-
-        <item
-            android:id="@+id/menu_tests"
-            android:icon="@drawable/ic_alcohol_test"
-            android:title="Alcohol Tests History"/>
-
-        <item
-            android:id="@+id/menu_logout"
-            android:icon="@drawable/ic_logout"
-            android:title="Log Out"/>
+    <item
+        android:id="@+id/menu_notification"
+        android:title="notification"
+        android:icon="@drawable/ic_notification_none"
+        app:showAsAction="always"/>
 
 </menu>

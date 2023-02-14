@@ -40,11 +40,11 @@ public class LoginActivity extends AppCompatActivity {
     private void initViews() {
         login_BTN_login.setOnClickListener(view -> {
             if (validateEmailAndPassword() && checkUser())
-                performLogin();
+                goToAnotherActivity(HomePageActivity.class);
         });
         login_BTN_signup.setOnClickListener(view -> {
             if (checkUser())
-                gotoSignup();
+                goToAnotherActivity(SignupActivity.class);
         });
     }
 
@@ -72,13 +72,8 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void performLogin() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
-    private void gotoSignup() {
-        Intent intent = new Intent(this, SignupActivity.class);
+    private void goToAnotherActivity(Class<?> cls) {
+        Intent intent = new Intent(this, cls);
         startActivity(intent);
         finish();
     }

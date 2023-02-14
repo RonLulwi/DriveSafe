@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.DriveSafe" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
@@ -12,7 +12,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">#09313E</item>
         <!-- Customize your theme here. -->
-
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="actionBarStyle">@style/Theme.DriveSafe.AppBarOverlay</item>
         <item name="android:popupMenuStyle">@style/popupBGStyle</item>
     </style>
 
@@ -29,10 +31,5 @@
     <style name="popupBGStyle" parent="Widget.MaterialComponents.PopupMenu">
         <item name="android:popupBackground">@drawable/menu_background</item>
     </style>
-
-
-
-
-
 
 </resources>

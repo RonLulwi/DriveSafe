@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TestHistoryActivity"
+    android:background="@color/backGround">
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/appbar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:layout_below="@id/appbar">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/history_RSV_view"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"/>
+</RelativeLayout>
+
+</RelativeLayout>
