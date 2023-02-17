@@ -52,6 +52,7 @@ public class SchedulerActivity extends MenuForAllActivities {
     private void initViews() {
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(view -> showPopupMenu(view, R.id.popup_menu_scheduler));
+        toolbar.setTitle("SCHEDULER");
     }
 
 }

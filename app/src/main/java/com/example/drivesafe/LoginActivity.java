@@ -1,5 +1,6 @@
 package com.example.drivesafe;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 import android.content.Intent;
@@ -11,13 +12,21 @@ import android.widget.Toast;
 
 
 import com.example.drivesafe.Signup.SignupActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
     private AppCompatEditText login_EDT_email, login_EDT_password;
+    String email, password;
     private MaterialButton login_BTN_login;
     private TextView login_BTN_signup;
+    
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,27 +47,31 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initViews() {
+        mAuth = FirebaseAuth.getInstance();
+        
         login_BTN_login.setOnClickListener(view -> {
-            if (validateEmailAndPassword() && checkUser())
-                goToAnotherActivity(HomePageActivity.class);
+            if(validateEmailAndPassword())
+                signIn(this.email, this.password);
         });
-        login_BTN_signup.setOnClickListener(view -> {
-            if (checkUser())
-                goToAnotherActivity(SignupActivity.class);
-        });
+        login_BTN_signup.setOnClickListener(view -> goToAnotherActivity(SignupActivity.class));
     }
 
-
-
-    private boolean checkUser() {
-        // TODO check if user exist in DB
-        return true;
+    
+    
+    
+    private void signIn(String email, String password){
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if(task.isSuccessful())
+                        goToAnotherActivity(HomePageActivity.class);
+                    else
+                        Toast.makeText(LoginActivity.this, "Authentication failed, Please try again.", Toast.LENGTH_SHORT).show();
+                });
     }
 
     private boolean validateEmailAndPassword() {
-        // TODO check email and password
-        String email = "" + login_EDT_email.getText();
-        String password = "" + login_EDT_password.getText();
+        this.email = "" + login_EDT_email.getText();
+        this.password = "" + login_EDT_password.getText();
         if(!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             if(!password.isEmpty()) {
                 return true;

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "442358426708",
+    "firebase_url": "https://drive-safe-62f57-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "drive-safe-62f57",
+    "storage_bucket": "drive-safe-62f57.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442358426708:android:32555381b4f962542611c1",
+        "android_client_info": {
+          "package_name": "com.example.drivesafe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442358426708-pktr91n9sbdujrj36pg443rlkkoj9bri.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgH5_8M3-LtuUk0tT9ifWrZ-MmQKn9CdU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "442358426708-pktr91n9sbdujrj36pg443rlkkoj9bri.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

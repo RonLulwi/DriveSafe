@@ -23,6 +23,7 @@ public class TestHistoryActivity extends MenuForAllActivities {
         setContentView(R.layout.activity_test_history);
         findViews();
         initViews();
+
         recyclerView = findViewById(R.id.history_RSV_view);
 
         List<Test> myTests = new ArrayList<>();
@@ -49,5 +50,6 @@ public class TestHistoryActivity extends MenuForAllActivities {
     private void initViews() {
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(view -> showPopupMenu(view, R.id.popup_menu_alcoholTests));
+        toolbar.setTitle("HISTORY");
     }
 }

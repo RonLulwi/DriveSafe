@@ -5,17 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Signup.FragmentsSignupPage01"
-    android:background="@color/backGround">
+    android:background="@color/backGround"
+    android:padding="30dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,34 +44,38 @@
 
             </LinearLayout>
 
+
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/login_EDT_firstName"
+                android:id="@+id/signup01_EDT_firstName"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:hint="First Name"
                 android:textColorHint="#99BED0AC"
+                android:inputType="textPersonName"
                 android:textColor="@color/icons_color"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/login_EDT_lastName"
+                android:id="@+id/signup01_EDT_lastName"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:hint="Last Name"
                 android:textColorHint="#99BED0AC"
+                android:inputType="textPersonName"
                 android:textColor="@color/icons_color"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/login_EDT_address"
+                android:id="@+id/signup01_EDT_address"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:hint="Address"
                 android:textColorHint="#99BED0AC"
+                android:inputType="textPostalAddress"
                 android:layout_margin="10dp"
                 android:textColor="@color/icons_color"
                 android:layout_weight="1"
@@ -87,36 +83,25 @@
                 />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/login_EDT_city"
+                android:id="@+id/signup01_EDT_city"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:hint="City"
                 android:textColorHint="#99BED0AC"
+                android:inputType="textPersonName"
                 android:textColor="@color/icons_color"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/login_EDT_email"
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:hint="Email"
-                android:textColorHint="#99BED0AC"
-                android:textColor="@color/icons_color"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1"/>
+
+
+
 
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
-
 
 
 

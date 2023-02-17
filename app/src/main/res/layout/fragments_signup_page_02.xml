@@ -5,17 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Signup.FragmentsSignupPage02"
-    android:background="@color/backGround">
+    android:background="@color/backGround"
+    android:padding="30dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,7 +17,7 @@
             android:layout_marginTop="30dp"
             android:orientation="vertical">
             <LinearLayout
-                android:id="@+id/firstsignuppage_img_progressBar"
+                android:id="@+id/signup02_img_progressBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -54,7 +46,7 @@
 
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/login_EDT_carLicenseNumber"
+                android:id="@+id/signup02_EDT_carLicenseNumber"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:hint="Car License Number"
@@ -66,7 +58,6 @@
                 />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/signup_second_"
                 android:layout_width="match_parent"
                 android:layout_height="15dp"
                 android:layout_weight="1"
@@ -76,7 +67,7 @@
 
 
                 <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                    android:id="@+id/signup_second_DRD_manufacture"
+                    android:id="@+id/signup02_DRD_manufacture"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="none"
@@ -95,7 +86,7 @@
 
 
                 <AutoCompleteTextView
-                    android:id="@+id/signup_second_DRD_carModel"
+                    android:id="@+id/signup02_DRD_carModel"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="none"
@@ -114,7 +105,7 @@
 
 
                 <AutoCompleteTextView
-                    android:id="@+id/signup_second_DRD_manufactureYear"
+                    android:id="@+id/signup02_DRD_manufactureYear"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="none"
@@ -133,12 +124,6 @@
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
 
 
 

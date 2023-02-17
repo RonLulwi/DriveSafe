@@ -14,13 +14,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.Toolbar;
 
-public class MenuForAllActivities extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
 
+public class MenuForAllActivities extends AppCompatActivity {
+    private FirebaseAuth mAuth;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu, menu);
+        mAuth = FirebaseAuth.getInstance();
         return true;
     }
 
@@ -62,6 +65,7 @@ public class MenuForAllActivities extends AppCompatActivity {
                 goToAnotherActivity(TestHistoryActivity.class);
                 break;
             case R.id.popup_menu_logout:
+                mAuth.signOut();
                 goToAnotherActivity(LoginActivity.class);
                 break;
             case R.id.popup_menu_home:
@@ -81,5 +85,6 @@ public class MenuForAllActivities extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
 
 }
