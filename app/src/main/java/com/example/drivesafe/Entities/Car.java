@@ -1,4 +1,4 @@
-package com.example.drivesafe;
+package com.example.drivesafe.Entities;
 
 public class Car {
 
@@ -41,6 +41,9 @@ public class Car {
     public Car setManufactureYear(int manufactureYear) {
         this.manufactureYear = manufactureYear;
         return this;
+    }
+    public String getFullCarInfo(){
+        return getManufactureYear()+", " + getManufacture() +" "+ getCarModel();
     }
 
     @Override

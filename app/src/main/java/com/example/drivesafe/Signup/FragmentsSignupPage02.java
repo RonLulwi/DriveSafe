@@ -28,13 +28,9 @@ public class FragmentsSignupPage02 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragments_signup_page_02, container, false);
-
         findViews(view);
         initViews();
-
-
         return view;
     }
 
@@ -57,7 +53,6 @@ public class FragmentsSignupPage02 extends Fragment {
         initAdapter(manufacture,  signup02_DRD_manufacture,  R.array.manufacture);
         initAdapter(manufactureYear,  signup02_DRD_manufactureYear,  R.array.manufactureYear);
         initAdapter(carModel,  signup02_DRD_carModel,  R.array.carModel);
-
         signup02_DRD_manufacture.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

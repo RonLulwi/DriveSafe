@@ -56,29 +56,25 @@ public class MenuForAllActivities extends AppCompatActivity {
     private boolean onPopupMenuClick(MenuItem item) {
         switch (item.getItemId()){
             case R.id.popup_menu_profile:
-                goToAnotherActivity(MyAccountActivity.class);
+               // goToAnotherActivity(MyAccountActivity.class);
                 break;
             case R.id.popup_menu_scheduler:
-                goToAnotherActivity(SchedulerActivity.class);
+               // goToAnotherActivity(SchedulerActivity.class);
                 break;
             case R.id.popup_menu_alcoholTests:
-                goToAnotherActivity(TestHistoryActivity.class);
+               // goToAnotherActivity(TestHistoryActivity.class);
                 break;
             case R.id.popup_menu_logout:
                 mAuth.signOut();
-                goToAnotherActivity(LoginActivity.class);
+               // goToAnotherActivity(LoginActivity.class);
                 break;
             case R.id.popup_menu_home:
-                goToAnotherActivity(HomePageActivity.class);
+               // goToAnotherActivity(HomePageActivity.class);
                 break;
         }
         return true;
     }
 
-    private void moveTo(String str) {
-        Toast.makeText(this, "move to " + str, Toast.LENGTH_SHORT).show();
-
-    }
 
     private void goToAnotherActivity(Class<?> cls) {
         Intent intent = new Intent(this, cls);

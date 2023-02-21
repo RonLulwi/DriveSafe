@@ -1,15 +1,14 @@
-package com.example.drivesafe;
+package com.example.drivesafe.Entities;
 
 public class Dates {
-
     String from,until,date;
-    boolean isActive;
-
-    public Dates(String from, String until, String date, boolean isActive) {
+    boolean active;
+    public Dates(){}
+    public Dates(String from, String until, String date, boolean active) {
         this.from = from;
         this.until = until;
         this.date = date;
-        this.isActive = isActive;
+        this.active = active;
     }
 
     public String getFrom() {
@@ -39,12 +38,12 @@ public class Dates {
         return this;
     }
 
-    public boolean isActive() {
-        return isActive;
+    public boolean getActive() {
+        return active;
     }
 
     public Dates setActive(boolean active) {
-        isActive = active;
+        this.active = active;
         return this;
     }
 }

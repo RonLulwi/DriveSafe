@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.drivesafe.Main.MainActivity;
 import com.example.drivesafe.Signup.SignupActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -63,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if(task.isSuccessful())
-                        goToAnotherActivity(HomePageActivity.class);
+                        goToAnotherActivity(MainActivity.class);
                     else
                         Toast.makeText(LoginActivity.this, "Authentication failed, Please try again.", Toast.LENGTH_SHORT).show();
                 });

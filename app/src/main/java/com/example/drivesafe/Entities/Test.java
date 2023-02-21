@@ -1,10 +1,11 @@
-package com.example.drivesafe;
+package com.example.drivesafe.Entities;
 
 public class Test {
 
     int image;
     String info, time, date;
 
+    public Test(){}
     public Test(int image, String info, String time, String date) {
         this.image = image;
         this.info = info;

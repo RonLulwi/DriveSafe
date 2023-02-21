@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.drivesafe.Entities.Test;
+
 import java.util.List;
 
 public class MyTestsAdapter extends RecyclerView.Adapter<MyViewHolder> {

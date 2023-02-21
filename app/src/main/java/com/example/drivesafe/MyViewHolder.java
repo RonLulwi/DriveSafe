@@ -16,10 +16,11 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
     TextView recyclerView_LBL_time, recyclerView_LBL_date, recyclerView_LBL_status;
     MaterialTextView recyclerView_LBL_devider,  recyclerView_LBL_from, recyclerView_LBL_until, recyclerView_LBL_textDate;
     SwitchCompat recyclerView_RBTN_onof;
+    public View view;
 
     public MyViewHolder(@NonNull View view) {
         super(view);
-
+        this.view = view;
         // recycler of tests
         recyclerView_IMG_baseline = view.findViewById(R.id.recyclerView_IMG_baseline);
         recyclerView_IMG_status = view.findViewById(R.id.recyclerView_IMG_status);
