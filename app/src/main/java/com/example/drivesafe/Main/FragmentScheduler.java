@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.drivesafe.Entities.Dates;
 import com.example.drivesafe.Entities.Test;
@@ -46,7 +47,7 @@ public class FragmentScheduler extends Fragment {
     private User currUser;
 
 
-    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(MainActivity.UPDATE_UI)) {
@@ -61,7 +62,7 @@ public class FragmentScheduler extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_scheduler, container, false);
-        User user = getArguments().getParcelable("user");
+        User user = getArguments().getParcelable(MainActivity.USER);
         findViews(view);
         initViews(user);
         return view;
@@ -70,6 +71,7 @@ public class FragmentScheduler extends Fragment {
     private void initViews(User user) {
         scheduler_TPR_start.setIs24HourView(true);
         scheduler_TPR_end.setIs24HourView(true);
+        scheduler_IMG_calender.setOnClickListener(v -> Toast.makeText(getContext(), "Calendar will be available at the next version", Toast.LENGTH_SHORT).show());
         scheduler_CBX_sunday.setOnClickListener(v -> setDayColor(scheduler_CBX_sunday));
         scheduler_CBX_monday.setOnClickListener(v -> setDayColor(scheduler_CBX_monday));
         scheduler_CBX_tuesday.setOnClickListener(v -> setDayColor(scheduler_CBX_tuesday));

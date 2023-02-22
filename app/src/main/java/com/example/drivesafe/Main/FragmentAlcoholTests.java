@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.drivesafe.Entities.AlcoholTest;
 import com.example.drivesafe.MyTestsAdapter;
 import com.example.drivesafe.R;
 import com.example.drivesafe.Entities.Test;
@@ -27,15 +28,14 @@ import java.util.List;
 public class FragmentAlcoholTests extends Fragment {
     private RecyclerView alcoholTests_RSV_view;
     View view;
-    List<Test> myTests;
+    List<AlcoholTest> myTests;
 
-    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(MainActivity.UPDATE_UI)) {
-                User user = intent.getParcelableExtra("user");
+                User user = intent.getParcelableExtra(MainActivity.USER);
                 updateUI(user);
-
             }
         }
     };
@@ -45,7 +45,7 @@ public class FragmentAlcoholTests extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_alcohol_tests, container, false);
-        User user = getArguments().getParcelable("user");
+        User user = getArguments().getParcelable(MainActivity.USER);
         findViews(view, user);
         return view;
     }

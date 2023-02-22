@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="15dp"
             android:layout_weight="1"
-            android:hint="27-589-59"
+            android:hint="@string/car_license_plate"
             android:textColorHint="#99BED0AC"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
@@ -28,6 +28,7 @@
                 android:layout_height="match_parent"
                 android:inputType="none"
                 android:textColor="#99BED0AC"
+                android:textSize="20sp"
                 android:fontFamily="@font/redhatdisplay_semibold"
                 />
 
@@ -38,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="15dp"
             android:layout_weight="1"
-            android:hint="Until 03:00"
+            android:hint="@string/chosen_time"
             android:textColorHint="#99BED0AC"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
@@ -49,6 +50,7 @@
                 android:layout_height="match_parent"
                 android:inputType="none"
                 android:textColor="#99BED0AC"
+                android:textSize="20sp"
                 android:fontFamily="@font/redhatdisplay_semibold"
                 />
 
@@ -60,7 +62,6 @@
             android:layout_height="0dp"
             android:layout_weight="0.3"
             android:layout_marginTop="10dp"
-            android:text="System Is Active"
             android:fontFamily="@font/redhatdisplay_semibold"
             android:textColor="@color/icons_color"
             android:textSize="18sp"
@@ -72,7 +73,6 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="0.3"
-            android:text="it will automatically be deactivated at 03:00"
             android:fontFamily="@font/redhatdisplay_semibold"
             android:textColor="#99BED0AC"
             android:textSize="15sp"

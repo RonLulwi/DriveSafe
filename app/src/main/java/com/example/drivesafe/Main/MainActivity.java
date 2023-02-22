@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.drivesafe.LoginActivity;
 import com.example.drivesafe.R;
@@ -37,11 +38,11 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton main_BTN_notification, main_BTN_popupMenu;
     private TextView main_LBL_pageTitle;
     private Fragment fragmentAlcoholTest, fragmentProfile, fragmentHomePage, fragmentScheduler;
-    private FirebaseUser firebaseUser;
     private FirebaseAuth firebaseAuth;
     private User currUser;
-    private DatabaseReference mUserReference;
     public static final String UPDATE_UI = "UPDATE_UI";
+    public static final String USER = "user";
+    private boolean wakeUp = true;
 
     ValueEventListener postListener = new ValueEventListener() {
         @Override
@@ -54,9 +55,8 @@ public class MainActivity extends AppCompatActivity {
         public void onCancelled(DatabaseError databaseError) {}
     };
 
-    public MainActivity setCurrUser(User currUser) {
+    public void setCurrUser(User currUser) {
         this.currUser = currUser;
-        return this;
     }
 
     @Override
@@ -82,17 +82,22 @@ public class MainActivity extends AppCompatActivity {
         fragmentHomePage = new FragmentHomePage();
         fragmentScheduler = new FragmentScheduler();
         main_BTN_popupMenu.setOnClickListener(v -> showPopupMenu(v));
-        loadFragment(fragmentHomePage, "DRIVE SAFE");
+        main_BTN_notification.setOnClickListener(v -> Toast.makeText(MainActivity.this, "Notifications will be available at the next version", Toast.LENGTH_SHORT).show());
         // get loge-din user
         firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser = firebaseAuth.getCurrentUser();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         if(firebaseUser != null) {
-            mUserReference = FirebaseDatabase.getInstance().getReference("users").child(firebaseUser.getUid());
+            DatabaseReference mUserReference = FirebaseDatabase.getInstance().getReference("users").child(firebaseUser.getUid());
             mUserReference.addValueEventListener(postListener);
         }
+
     }
 
     private void updateUI(User user) {
+        if (wakeUp){
+            wakeUp =false;
+            loadFragment(fragmentHomePage, "DRIVE SAFE");
+        }
         Intent intent = new Intent(UPDATE_UI);
         intent.putExtra("user", user);
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);

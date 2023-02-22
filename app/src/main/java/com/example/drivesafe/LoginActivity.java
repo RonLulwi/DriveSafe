@@ -6,7 +6,9 @@ import androidx.appcompat.widget.AppCompatEditText;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     String email, password;
     private MaterialButton login_BTN_login;
     private TextView login_BTN_signup;
-    
+    private ImageView login_IMG_fingerprint;
     private FirebaseAuth mAuth;
 
     @Override
@@ -45,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         login_EDT_password = findViewById(R.id.login_EDT_password);
         login_BTN_login = findViewById(R.id.login_BTN_login);
         login_BTN_signup = findViewById(R.id.login_BTN_signup);
+        login_IMG_fingerprint = findViewById(R.id.login_IMG_fingerprint);
     }
 
     private void initViews() {
@@ -55,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                 signIn(this.email, this.password);
         });
         login_BTN_signup.setOnClickListener(view -> goToAnotherActivity(SignupActivity.class));
+        login_IMG_fingerprint.setOnClickListener(v -> Toast.makeText(LoginActivity.this, "Fingerprint Authentication will be available at the next version", Toast.LENGTH_SHORT).show());
     }
 
     

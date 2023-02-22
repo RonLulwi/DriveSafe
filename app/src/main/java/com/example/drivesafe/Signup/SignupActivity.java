@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.widget.Toast;
 
+import com.example.drivesafe.Entities.AlcoholTest;
 import com.example.drivesafe.Entities.Car;
 import com.example.drivesafe.Entities.Dates;
 import com.example.drivesafe.LoginActivity;
@@ -111,17 +112,18 @@ public class SignupActivity extends AppCompatActivity {
 
     private void signUp(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser user = mAuth.getCurrentUser();
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        if(user != null){
                             addUserToDB(user);
                             mAuth.signOut();
                             goToAnotherActivity(LoginActivity.class);
-                        } else {
-                            Toast.makeText(SignupActivity.this, "Authentication failed, Please try again.", Toast.LENGTH_SHORT).show();
                         }
+
+
+                    } else {
+                        Toast.makeText(SignupActivity.this, "Authentication failed, Please try again.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -136,10 +138,10 @@ public class SignupActivity extends AppCompatActivity {
                 .setCarModel(fragmentsSignupPage02.getUserCarModel()).setLicensePlateNumber(fragmentsSignupPage02.getUserLicenseNumber())
                 .setManufacture(fragmentsSignupPage02.getUserManufacture()).setManufactureYear(Integer.parseInt(fragmentsSignupPage02.getUserManufactureYear()));
         ArrayList<Car> userCar = new ArrayList<>();
-        ArrayList<Test> userTests = new ArrayList<>();
+        ArrayList<AlcoholTest> userTests = new ArrayList<>();
         ArrayList<Dates> userDates = new ArrayList<>();
         userCar.add(car);
-        userTests.add(new Test(R.drawable.ic_passed, "PASSED", "22:00", "23/06"));
+        userTests.add(new AlcoholTest(true));
         this.newUser = new User()
                 .setFirstName(fragmentsSignupPage01.getFirstName())
                 .setLastName(fragmentsSignupPage01.getLastName())
@@ -149,7 +151,8 @@ public class SignupActivity extends AppCompatActivity {
                 .setUserPassword(fragmentsSignupPage03.getPassword())
                 .setUserCar(userCar)
                 .setUserTests(userTests)
-                .setUserActivationDates(userDates);
+                .setUserActivationDates(userDates)
+                .setActive(false);
     }
 
 

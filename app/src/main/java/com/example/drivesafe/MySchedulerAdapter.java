@@ -40,10 +40,7 @@ public class MySchedulerAdapter extends RecyclerView.Adapter<MyViewHolder>{
         holder.recyclerView_LBL_textDate.setText(dates.get(position).getDate());
         holder.recyclerView_RBTN_onof.setChecked(dates.get(position).getActive());
         holder.recyclerView_RBTN_onof.setOnClickListener(v -> {
-            if(dates.get(position).getActive())
-                dates.get(position).setActive(false);
-            else
-                dates.get(position).setActive(true);
+            dates.get(position).setActive(!dates.get(position).getActive());
             notifyFB();
         });
         holder.view.setOnLongClickListener(v -> {
@@ -61,7 +58,7 @@ public class MySchedulerAdapter extends RecyclerView.Adapter<MyViewHolder>{
     }
     @Override
     public int getItemCount() {
-        if (dates ==null)
+        if (dates == null)
             return 0;
         return dates.size();
     }

@@ -12,8 +12,9 @@ public class User implements Parcelable {
     private String address, city;
     private String email, phoneNumber, userPassword;
     private ArrayList<Car> userCar;
-    private ArrayList<Test> userTests;
+    private ArrayList<AlcoholTest> userTests;
     private ArrayList<Dates> userActivationDates;
+    private boolean active;
 
     public User(){}
 
@@ -26,6 +27,7 @@ public class User implements Parcelable {
         email = in.readString();
         phoneNumber = in.readString();
         userPassword = in.readString();
+        active = in.readBoolean();
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -119,11 +121,11 @@ public class User implements Parcelable {
         return this;
     }
 
-    public ArrayList<Test> getUserTests() {
+    public ArrayList<AlcoholTest> getUserTests() {
         return userTests;
     }
 
-    public User setUserTests(ArrayList<Test> userTests) {
+    public User setUserTests(ArrayList<AlcoholTest> userTests) {
         this.userTests = userTests;
         return this;
     }
@@ -142,6 +144,16 @@ public class User implements Parcelable {
         this.userActivationDates.add(dates);
     }
 
+    public boolean getActive() {
+        return active;
+    }
+
+    public User setActive(boolean active) {
+        this.active = active;
+        return this;
+    }
+
+
     @Override
     public String toString() {
         return "User{" +
@@ -155,6 +167,7 @@ public class User implements Parcelable {
                 ", userCar=" + userCar +
                 ", userTests=" + userTests +
                 ", userActivationDates=" + userActivationDates +
+                ", active=" + active +
                 '}';
     }
 
@@ -175,5 +188,7 @@ public class User implements Parcelable {
         dest.writeArray(this.userCar.toArray());
         dest.writeArray(this.userTests.toArray());
         dest.writeArray(this.userActivationDates.toArray());
+        dest.writeBoolean(this.active);
+
     }
 }
