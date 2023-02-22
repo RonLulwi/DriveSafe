@@ -30,17 +30,3 @@ The application will provide the parent with control over the "safe driving" sys
 ![image](https://user-images.githubusercontent.com/95926852/220773921-f2fb8844-a423-4424-9970-8a6aeae7e2cb.png)
 ### InApp
 ![image](https://user-images.githubusercontent.com/95926852/220773901-3de0cb45-6913-48ad-98c2-fd2d96d709fe.png)
-
-# Upcoming features
-1. Activate and Deactivate "DRIVE SAFE" system
-2. Secure Signup Authentication via SMS 
-3. Alcohol test history
-4. Login with password & Email or fingerprint
-5. Real time notifications - Regarding the alcohol tests performed and detection of attempted bypassing of the system
-6. Activation scheduler - Plan the system operation times
-7. Get the car precise geographic location
-
-# Firebase server's uses
-1. Transfer data between DriveSafe system and the client
-2. Firebase Auth to manage users
-3. Transfer and save images
