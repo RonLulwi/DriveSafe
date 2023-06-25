@@ -1,20 +1,14 @@
 package com.example.drivesafe;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.drivesafe.Entities.AlcoholTest;
-import com.example.drivesafe.Entities.Test;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
+import com.example.drivesafe.Entities.AlcoholTestResult;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class MyTestsAdapter extends RecyclerView.Adapter<MyViewHolder> {
@@ -35,28 +29,15 @@ public class MyTestsAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        if(tests.get(position).getResult()){
-            holder.recyclerView_LBL_status.setText("PASSED");
-            holder.recyclerView_LBL_date.setText(tests.get(position).getDate());
-            holder.recyclerView_IMG_status.setImageResource(R.drawable.ic_passed);
-        }else{
-            holder.recyclerView_LBL_status.setText("FAILED");
-            holder.recyclerView_LBL_date.setText(tests.get(position).getDate());
+        String result = tests.get(position).getResult().toString();
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy HH:mm");
+        String date = formatter.format(tests.get(position).getTestTimestamp());
+        if(tests.get(position).getResult().equals(AlcoholTestResult.FAILED))
             holder.recyclerView_IMG_status.setImageResource(R.drawable.ic_failed);
-        }
-
-        holder.view.setOnLongClickListener(v -> {
-            Toast.makeText(context, "Activation date has been deleted!", Toast.LENGTH_SHORT).show();
-            tests.remove(tests.get(position));
-            notifyFB();
-            return true;
-        });
-    }
-
-    private void notifyFB(){
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        FirebaseUser fbUser = FirebaseAuth.getInstance().getCurrentUser();
-        mDatabase.child("users").child(fbUser.getUid()).child("userTests").setValue(this.tests);
+        else
+            holder.recyclerView_IMG_status.setImageResource(R.drawable.ic_passed);
+        holder.recyclerView_LBL_status.setText(result);
+        holder.recyclerView_LBL_date.setText(date);
     }
 
     @Override

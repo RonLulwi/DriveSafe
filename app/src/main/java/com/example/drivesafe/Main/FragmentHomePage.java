@@ -4,52 +4,47 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
-
+import android.widget.Toast;
+import com.example.drivesafe.App;
+import com.example.drivesafe.DriveSafeController;
+import com.example.drivesafe.Entities.SystemStates;
+import com.example.drivesafe.Entities.UserEntity;
 import com.example.drivesafe.R;
-import com.example.drivesafe.Entities.User;
 import com.google.android.material.textview.MaterialTextView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class FragmentHomePage extends Fragment {
     private AutoCompleteTextView homepage_DRD_currentCarLicense, homepage_DRD_time;
     private MaterialTextView homepage_LBL_activationInfo, homepage_LBL_activationSubInfo;
     private ImageButton homepage_BTN_activation;
-    private User currUser;
+    private UserEntity currUser;
     private String[] time;
 
     private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(MainActivity.UPDATE_UI)) {
-                User user = intent.getParcelableExtra("user");
+                UserEntity user = intent.getParcelableExtra("user");
                 setCurrUser(user);
                 updateUI();
             }
         }
     };
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home_page, container, false);
-        this.currUser = getArguments().getParcelable(MainActivity.USER);
+        if(getArguments() != null)
+            this.currUser = (UserEntity) getArguments().getSerializable(MainActivity.USER);
         findViews(view);
         initViews(this.currUser);
         return view;
@@ -70,7 +65,7 @@ public class FragmentHomePage extends Fragment {
         updateUI();
     }
 
-    public void setCurrUser(User currUser) {
+    public void setCurrUser(UserEntity currUser) {
         this.currUser = currUser;
     }
 
@@ -87,47 +82,61 @@ public class FragmentHomePage extends Fragment {
         homepage_LBL_activationSubInfo = view.findViewById(R.id.homepage_LBL_activationSubInfo);
         homepage_BTN_activation = view.findViewById(R.id.homepage_BTN_activation);
     }
-    private void initViews(User user) {
-        homepage_BTN_activation.setOnClickListener(v -> updateFBSystemActivation());
+    private void initViews(UserEntity user) {
+        homepage_BTN_activation.setOnClickListener(v -> changeSystemState());
         initAdapter(time,  homepage_DRD_time,  R.array.time);
 
         homepage_DRD_time.setOnItemClickListener((adapterView, view, i, l) -> {
-            if(homepage_DRD_time.getText().toString().equals("Never")) {
+            if(homepage_DRD_time.getText().toString().equals("--")) {
                 homepage_LBL_activationSubInfo.setText("");
                 return;
             }
-            if(user.getActive())
-                homepage_LBL_activationSubInfo.setText("it will automatically be Deactivated at: " + homepage_DRD_time.getText().toString());
+            if(user.getCar().getSystemState().equals(SystemStates.ACTIVE))
+                homepage_LBL_activationSubInfo.setText("It will automatically be deactivated at " + homepage_DRD_time.getText().toString());
             else
-                homepage_LBL_activationSubInfo.setText("it will automatically be Activated at: " + homepage_DRD_time.getText().toString());
+                homepage_LBL_activationSubInfo.setText("It will automatically be activated at " + homepage_DRD_time.getText().toString());
         });
         updateUI();
     }
 
-    private void updateFBSystemActivation() {
-        FirebaseUser fbUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(fbUser.getUid()).child("active");
-        if(this.currUser.getActive())
-            mDatabase.setValue(false);
+    private void changeSystemState() {
+        SystemStates currState = currUser.getCar().getSystemState();
+        SystemStates wantedState;
+        if(currState == SystemStates.ACTIVE)
+            wantedState = SystemStates.DEACTIVE;
         else
-            mDatabase.setValue(true);
+            wantedState = SystemStates.ACTIVE;
+        new DriveSafeController().changeSystemStatus(wantedState, currUser.getCar().getLicenseNumber(), new DriveSafeController.CallBack_changeSystemState() {
+            @Override
+            public void changeSystemState(boolean response) {
+                if (!response)
+                    Toast.makeText(App.getAppContext(), "Something went Wrong, try Again", Toast.LENGTH_SHORT).show();
+                else{
+                    currUser.getCar().setSystemState(wantedState);
+                    updateUI();
+                }
+            }
+        });
+
     }
     private void updateUI() {
-        homepage_DRD_currentCarLicense.setText(this.currUser.getUserCar().get(0).getLicensePlateNumber());
-        if(this.currUser.getActive()){
+        homepage_DRD_currentCarLicense.setText(this.currUser.getCar().getLicenseNumber());
+        if(this.currUser.getCar().getSystemState().equals(SystemStates.ACTIVE)){
             homepage_BTN_activation.setImageResource(R.drawable.ic_deactivate);
-            homepage_LBL_activationInfo.setText("System Is Active");
+            homepage_LBL_activationInfo.setTextColor(Color.parseColor("#BED0AC"));
+            homepage_LBL_activationInfo.setText("System is active");
             if(homepage_DRD_time.getText().toString().equals("Never") || homepage_DRD_time.getText().toString().equals("")) {
-                homepage_LBL_activationSubInfo.setText("");
+                homepage_LBL_activationSubInfo.setText(" ");
             }else
-                homepage_LBL_activationSubInfo.setText("it will automatically be Deactivated at: " + homepage_DRD_time.getText().toString());
+                homepage_LBL_activationSubInfo.setText("It will automatically be deactivated at " + homepage_DRD_time.getText().toString());
         }else{
             homepage_BTN_activation.setImageResource(R.drawable.ic_activate);
-            homepage_LBL_activationInfo.setText("System Is Deactivate");
+            homepage_LBL_activationInfo.setTextColor(Color.parseColor("#BED0AC"));
+            homepage_LBL_activationInfo.setText("System is inactive");
             if(homepage_DRD_time.getText().toString().equals("Never") || homepage_DRD_time.getText().toString().equals("")) {
-                homepage_LBL_activationSubInfo.setText("");
+                homepage_LBL_activationSubInfo.setText(" ");
             }else
-                homepage_LBL_activationSubInfo.setText("it will automatically be Activated at: " + homepage_DRD_time.getText().toString());
+                homepage_LBL_activationSubInfo.setText(" ");
         }
     }
     private void initAdapter(String[] list, AutoCompleteTextView autoCompleteTextView, int resource) {

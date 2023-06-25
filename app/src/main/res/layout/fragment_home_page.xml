@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/backGround"
     tools:context=".Main.FragmentHomePage">
 
@@ -17,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="15dp"
             android:layout_weight="1"
-            android:hint="@string/car_license_plate"
+            android:hint="Car License Number"
             android:textColorHint="#99BED0AC"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
@@ -28,6 +29,7 @@
                 android:layout_height="match_parent"
                 android:inputType="none"
                 android:textColor="#99BED0AC"
+                android:textAlignment="center"
                 android:textSize="20sp"
                 android:fontFamily="@font/redhatdisplay_semibold"
                 />
@@ -39,9 +41,10 @@
             android:layout_width="match_parent"
             android:layout_height="15dp"
             android:layout_weight="1"
-            android:hint="@string/chosen_time"
+            android:hint="Until"
             android:textColorHint="#99BED0AC"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            >
 
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
@@ -49,6 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="none"
+                android:textAlignment="center"
                 android:textColor="#99BED0AC"
                 android:textSize="20sp"
                 android:fontFamily="@font/redhatdisplay_semibold"
@@ -64,7 +68,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/redhatdisplay_semibold"
             android:textColor="@color/icons_color"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:gravity="center"
             />
 

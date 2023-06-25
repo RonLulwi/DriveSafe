@@ -9,125 +9,137 @@
     android:padding="30dp">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
         <LinearLayout
+            android:id="@+id/signup02_img_progressBar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.3"
-            android:layout_marginBottom="30dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:orientation="vertical">
-            <LinearLayout
-                android:id="@+id/signup02_img_progressBar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_weight="3"
-                android:orientation="horizontal">
+            android:layout_weight="3"
+            android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:src="@drawable/ic_step_undone"/>
-
-                <ImageView
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:src="@drawable/ic_step_done"/>
-
-                <ImageView
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:src="@drawable/ic_step_undone"/>
-
-            </LinearLayout>
-
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/signup02_EDT_carLicenseNumber"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:hint="Car License Number"
-                android:textColorHint="#99BED0AC"
-                android:layout_margin="10dp"
-                android:textColor="@color/icons_color"
+            <ImageView
                 android:layout_weight="1"
-
-                />
-
-            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="15dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_step_undone"/>
+
+            <ImageView
                 android:layout_weight="1"
-                android:hint="@string/manufacture"
-                android:textColorHint="#99BED0AC"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-
-
-                <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                    android:id="@+id/signup02_DRD_manufacture"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="none"
-                    android:textColor="#99BED0AC"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="15dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_step_done"/>
+
+            <ImageView
                 android:layout_weight="1"
-                android:hint="@string/car_model"
-                android:textColorHint="#99BED0AC"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-
-
-                <AutoCompleteTextView
-                    android:id="@+id/signup02_DRD_carModel"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="none"
-                    android:textColor="#99BED0AC"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="15dp"
-                android:layout_weight="1"
-                android:hint="@string/manufacture_year"
-                android:textColorHint="#99BED0AC"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-
-
-                <AutoCompleteTextView
-                    android:id="@+id/signup02_DRD_manufactureYear"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="none"
-                    android:textColor="#99BED0AC"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
-
-
-            
+                android:layout_height="60dp"
+                android:src="@drawable/ic_step_undone"/>
 
         </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/signup02_EDT_carLicenseNumber"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="Car License Number"
+                android:textColorHint="#99BED0AC"
+                android:layout_margin="10dp"
+                android:textColor="@color/icons_color"
+                android:layout_weight="2"
+
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/signup02_BTN_getInfo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Validate"
+                android:layout_margin="5dp"
+                android:textSize="13sp"
+                android:backgroundTint="@color/my_BTN_green"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/signup02_DRD_manufacture"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="@string/manufacture"
+            android:textColorHint="#99BED0AC"
+            android:enabled="false"
+            android:layout_margin="10dp"
+            android:textColor="@color/icons_color"
+            android:layout_weight="1"
+
+            />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/signup02_DRD_carModel"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="@string/car_model"
+            android:enabled="false"
+            android:textColorHint="#99BED0AC"
+            android:layout_margin="10dp"
+            android:textColor="@color/icons_color"
+            android:layout_weight="1"
+
+            />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/signup02_DRD_manufactureYear"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="@string/manufacture_year"
+            android:enabled="false"
+            android:textColorHint="#99BED0AC"
+            android:layout_margin="10dp"
+            android:textColor="@color/icons_color"
+            android:layout_weight="1"
+            />
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+
+
+
+    </LinearLayout>
 
 </RelativeLayout>

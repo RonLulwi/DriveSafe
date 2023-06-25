@@ -2,19 +2,11 @@ package com.example.drivesafe;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.drivesafe.Entities.Dates;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.List;
 
 public class MySchedulerAdapter extends RecyclerView.Adapter<MyViewHolder>{
@@ -41,21 +33,14 @@ public class MySchedulerAdapter extends RecyclerView.Adapter<MyViewHolder>{
         holder.recyclerView_RBTN_onof.setChecked(dates.get(position).getActive());
         holder.recyclerView_RBTN_onof.setOnClickListener(v -> {
             dates.get(position).setActive(!dates.get(position).getActive());
-            notifyFB();
         });
         holder.view.setOnLongClickListener(v -> {
             Toast.makeText(context, "Activation date has been deleted!", Toast.LENGTH_SHORT).show();
             dates.remove(dates.get(position));
-            notifyFB();
             return true;
         });
     }
 
-    private void notifyFB(){
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        FirebaseUser fbUser = FirebaseAuth.getInstance().getCurrentUser();
-        mDatabase.child("users").child(fbUser.getUid()).child("userActivationDates").setValue(this.dates);
-    }
     @Override
     public int getItemCount() {
         if (dates == null)

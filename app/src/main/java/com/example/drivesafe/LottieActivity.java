@@ -6,9 +6,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
-
 import com.airbnb.lottie.LottieAnimationView;
-import com.example.drivesafe.Signup.SignupActivity;
 
 public class LottieActivity extends AppCompatActivity {
     private LottieAnimationView lottie_view;
@@ -22,26 +20,16 @@ public class LottieActivity extends AppCompatActivity {
         lottie_view.addAnimatorListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                goToFirstPage();
+                OpenLoginActivity();
             }
         });
     }
 
-    private void goToFirstPage() {
-        Intent intent;
-        if(isFirstUse())
-            intent = new Intent(this, SignupActivity.class);
-        else
-            intent = new Intent(this, LoginActivity.class);
+    private void OpenLoginActivity() {
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
 
     }
-
-    private boolean isFirstUse() {
-        // TODO: check if is the first use of the client via 'FireBase DB' OR Application
-        return false;
-    }
-
 
 }

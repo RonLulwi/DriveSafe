@@ -1,30 +1,33 @@
 package com.example.drivesafe.Signup;
 
-import android.content.Context;
 import android.os.Bundle;
-
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Toast;
-
+import com.example.drivesafe.CallBack_SignupProtocol;
+import com.example.drivesafe.CarInfoController;
+import com.example.drivesafe.Entities.Car;
 import com.example.drivesafe.R;
+import com.example.drivesafe.SignUpManager;
+import com.google.android.material.button.MaterialButton;
 
 
 public class FragmentsSignupPage02 extends Fragment {
 
-    private AutoCompleteTextView signup02_DRD_manufacture, signup02_DRD_manufactureYear, signup02_DRD_carModel;
-    private AppCompatEditText signup02_EDT_carLicenseNumber;
-    private String[] manufacture, manufactureYear, carModel;
-
+    private AppCompatEditText signup02_EDT_carLicenseNumber, signup02_DRD_manufacture, signup02_DRD_manufactureYear, signup02_DRD_carModel;
+    private MaterialButton signup02_BTN_getInfo;
     private String userLicenseNumber, userManufacture,userManufactureYear, userCarModel;
+    private Car newCar;
+    private CallBack_SignupProtocol callBack_signupProtocol;
+    private SignUpManager signUpManager;
+
+    public void setCallBack_SignupProtocol(CallBack_SignupProtocol callBack_signupProtocol){
+        this.callBack_signupProtocol = callBack_signupProtocol;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,9 +40,7 @@ public class FragmentsSignupPage02 extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        initAdapter(manufacture,  signup02_DRD_manufacture,  R.array.manufacture);
-        initAdapter(manufactureYear,  signup02_DRD_manufactureYear,  R.array.manufactureYear);
-        initAdapter(carModel,  signup02_DRD_carModel,  R.array.carModel);
+
     }
 
     private void findViews(View view) {
@@ -47,69 +48,52 @@ public class FragmentsSignupPage02 extends Fragment {
         signup02_DRD_manufacture = view.findViewById(R.id.signup02_DRD_manufacture);
         signup02_DRD_manufactureYear = view.findViewById(R.id.signup02_DRD_manufactureYear);
         signup02_DRD_carModel = view.findViewById(R.id.signup02_DRD_carModel);
+        signup02_BTN_getInfo = view.findViewById(R.id.signup02_BTN_getInfo);
     }
 
     private void initViews() {
-        initAdapter(manufacture,  signup02_DRD_manufacture,  R.array.manufacture);
-        initAdapter(manufactureYear,  signup02_DRD_manufactureYear,  R.array.manufactureYear);
-        initAdapter(carModel,  signup02_DRD_carModel,  R.array.carModel);
-        signup02_DRD_manufacture.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        signUpManager = new SignUpManager();
+        signup02_BTN_getInfo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                userManufacture = signup02_DRD_manufacture.getText().toString();
+            public void onClick(View v) {
+                String licenseNumber = signup02_EDT_carLicenseNumber.getText().toString();
+                if(!licenseNumber.equals("") && signUpManager.validateLicensePlate(licenseNumber))
+                    findCarInfo(licenseNumber);
+                else
+                    signUpManager.showToast("Invalid License plate number");
             }
         });
+    }
 
-        signup02_DRD_carModel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    private void findCarInfo(String carLicenseNumber) {
+        new CarInfoController().fetchCarInfo(carLicenseNumber, new CarInfoController.Callback_CarInfo() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                userCarModel = signup02_DRD_carModel.getText().toString();
+            public void getCarInfo(Car car) {
+                if(car!=null) {
+                    setCar(car);
+                    updateUI();
+                }else
+                    signUpManager.showToast("Car with LicenseNumber "+ carLicenseNumber + " not found. Please Try Again!");
             }
         });
-
-        signup02_DRD_manufactureYear.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                userManufactureYear = signup02_DRD_manufactureYear.getText().toString();
-            }
-        });
-
     }
 
-    private void initAdapter(String[] list, AutoCompleteTextView autoCompleteTextView, int resource) {
-        list = getResources().getStringArray(resource);
-        ArrayAdapter<String> adapter = new ArrayAdapter(requireContext(), R.layout.dropdown_item, list);
-        autoCompleteTextView.setAdapter(adapter);
+    private void updateUI() {
+        this.signup02_DRD_manufacture.setText(this.newCar.getManufacture());
+        this.signup02_DRD_manufactureYear.setText(this.newCar.getManufactureYear()+"");
+        this.signup02_DRD_carModel.setText(this.newCar.getModel());
     }
 
-    private void prepareValues(){
-        this.userLicenseNumber = signup02_EDT_carLicenseNumber.getText().toString();
-        this.userManufacture = signup02_DRD_manufacture.getText().toString();
-        this.userManufactureYear = signup02_DRD_manufactureYear.getText().toString();
-        this.userCarModel = signup02_DRD_carModel.getText().toString();
-    }
-    public boolean isInputValid(Context context){
-        prepareValues();
-        if(this.userLicenseNumber.isEmpty() || this.userManufacture.isEmpty() || this.userCarModel.isEmpty() || this.userManufactureYear.isEmpty()){
-            Toast.makeText(context, "Please enter All missing values", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        return true;
+    public boolean isInputValid() {
+        if (this.newCar != null){
+            callBack_signupProtocol.carInfo(this.newCar);
+            return true;
+        }else
+            signUpManager.showToast("Invalid License plate number");
+        return false;
     }
 
-    public String getUserManufacture() {
-        return userManufacture;
-    }
-
-    public String getUserManufactureYear() {
-        return userManufactureYear;
-    }
-
-    public String getUserCarModel() {
-        return userCarModel;
-    }
-
-    public String getUserLicenseNumber() {
-        return userLicenseNumber;
+    private void setCar(Car car){
+        this.newCar = car;
     }
 }

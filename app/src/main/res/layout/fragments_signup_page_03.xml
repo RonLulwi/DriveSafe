@@ -44,6 +44,17 @@
 
 
             </LinearLayout>
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/signup03_EDT_id"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:hint="Id"
+                android:textColorHint="#99BED0AC"
+                android:layout_margin="10dp"
+                android:textColor="@color/icons_color"
+                android:layout_weight="1"
+
+                />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/signup03_EDT_email"

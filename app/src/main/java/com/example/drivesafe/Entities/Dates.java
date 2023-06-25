@@ -46,4 +46,14 @@ public class Dates {
         this.active = active;
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "Dates{" +
+                "from='" + from + '\'' +
+                ", until='" + until + '\'' +
+                ", date='" + date + '\'' +
+                ", active=" + active +
+                '}';
+    }
 }

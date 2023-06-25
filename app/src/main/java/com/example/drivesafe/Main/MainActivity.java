@@ -3,13 +3,10 @@ package com.example.drivesafe.Main;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,55 +15,39 @@ import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.example.drivesafe.Entities.UserEntity;
 import com.example.drivesafe.LoginActivity;
 import com.example.drivesafe.R;
-import com.example.drivesafe.Entities.User;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.example.drivesafe.Utils.MSP;
+import com.google.gson.Gson;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton main_BTN_notification, main_BTN_popupMenu;
     private TextView main_LBL_pageTitle;
-    private Fragment fragmentAlcoholTest, fragmentProfile, fragmentHomePage, fragmentScheduler;
-    private FirebaseAuth firebaseAuth;
-    private User currUser;
+    private Fragment fragmentAlcoholTest, fragmentProfile, fragmentHomePage, fragmentScheduler, fragmentBypassAttempt;
+    private UserEntity currUser;
     public static final String UPDATE_UI = "UPDATE_UI";
     public static final String USER = "user";
     private boolean wakeUp = true;
-
-    ValueEventListener postListener = new ValueEventListener() {
-        @Override
-        public void onDataChange(DataSnapshot dataSnapshot) {
-            User firebaseUpdatedUser = dataSnapshot.getValue(User.class);
-            setCurrUser(firebaseUpdatedUser);
-            updateUI(firebaseUpdatedUser);
-        }
-        @Override
-        public void onCancelled(DatabaseError databaseError) {}
-    };
-
-    public void setCurrUser(User currUser) {
-        this.currUser = currUser;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-
         findViews();
         initViews();
+    }
+
+    private void getUserFromSP() {
+        Gson json = new Gson();
+        String userFromSP = MSP.getInstance().getString("USER", "");
+        if(userFromSP.equals(""))
+            finish();
+        UserEntity user = json.fromJson(userFromSP, UserEntity.class);
+        this.currUser = user;
     }
 
     private void findViews() {
@@ -81,19 +62,16 @@ public class MainActivity extends AppCompatActivity {
         fragmentProfile = new FragmentProfile();
         fragmentHomePage = new FragmentHomePage();
         fragmentScheduler = new FragmentScheduler();
+        fragmentBypassAttempt = new FragmentBypassAttempt();
         main_BTN_popupMenu.setOnClickListener(v -> showPopupMenu(v));
         main_BTN_notification.setOnClickListener(v -> Toast.makeText(MainActivity.this, "Notifications will be available at the next version", Toast.LENGTH_SHORT).show());
-        // get loge-din user
-        firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-        if(firebaseUser != null) {
-            DatabaseReference mUserReference = FirebaseDatabase.getInstance().getReference("users").child(firebaseUser.getUid());
-            mUserReference.addValueEventListener(postListener);
-        }
 
+        // get loge-din user
+        getUserFromSP();
+        updateUI(currUser);
     }
 
-    private void updateUI(User user) {
+    private void updateUI(UserEntity user) {
         if (wakeUp){
             wakeUp =false;
             loadFragment(fragmentHomePage, "DRIVE SAFE");
@@ -126,12 +104,13 @@ public class MainActivity extends AppCompatActivity {
                 loadFragment(fragmentAlcoholTest, "HISTORY");
                 break;
             case R.id.popup_menu_logout:
-                firebaseAuth.signOut();
                 goToAnotherActivity(LoginActivity.class);
                 break;
             case R.id.popup_menu_home:
                 loadFragment(fragmentHomePage, "DRIVE SAFE");
                 break;
+            case R.id.popup_menu_bypassAttempt:
+                loadFragment(fragmentBypassAttempt, "BYPASS ATTEMPTS");
         }
         return true;
     }
@@ -139,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
     public void loadFragment(Fragment fragment, String title){
         main_LBL_pageTitle.setText(title);
         Bundle bundle = new Bundle();
-        bundle.putParcelable("user", currUser);
+        bundle.putSerializable("user", currUser);
         fragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().replace(R.id.main_FLY_context, fragment).commit();
     }

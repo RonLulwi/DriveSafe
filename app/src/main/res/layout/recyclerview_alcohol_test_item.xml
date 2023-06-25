@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp">
+    android:layout_height="60dp"
+    android:layout_marginTop="10dp"
+    >
 
 
     <ImageView
         android:id="@+id/recyclerView_IMG_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:foregroundGravity="center"
         android:src="@drawable/ic_passed" />
     <TextView
         android:id="@+id/recyclerView_LBL_status"
@@ -16,6 +18,9 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/recyclerView_IMG_status"
         android:layout_marginStart="10dp"
+        android:layout_alignBottom="@id/recyclerView_IMG_status"
+        android:layout_alignTop="@id/recyclerView_IMG_status"
+        android:gravity="center_vertical"
         android:textSize="25sp"
         android:textColor="@color/icons_color"
         android:fontFamily="@font/redhatdisplay_semibold"/>
@@ -23,6 +28,9 @@
         android:id="@+id/recyclerView_LBL_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_alignBottom="@id/recyclerView_IMG_status"
+        android:layout_alignTop="@id/recyclerView_IMG_status"
         android:layout_alignParentEnd="true"
         android:textSize="20sp"
         android:textColor="@color/icons_color"
@@ -33,7 +41,7 @@
         android:id="@+id/recyclerView_IMG_baseline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@id/recyclerView_IMG_status"
         android:src="@drawable/ic_text_baseline"/>
 

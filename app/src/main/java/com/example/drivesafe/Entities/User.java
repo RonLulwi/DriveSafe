@@ -2,16 +2,15 @@ package com.example.drivesafe.Entities;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import androidx.annotation.NonNull;
-
 import java.util.ArrayList;
 
 public class User implements Parcelable {
     private String firstName, lastName;
     private String address, city;
+    private String id;
     private String email, phoneNumber, userPassword;
-    private ArrayList<Car> userCar;
+    private Car userCar;
     private ArrayList<AlcoholTest> userTests;
     private ArrayList<Dates> userActivationDates;
     private boolean active;
@@ -112,11 +111,11 @@ public class User implements Parcelable {
         return this;
     }
 
-    public ArrayList<Car> getUserCar() {
+    public Car getUserCar() {
         return userCar;
     }
 
-    public User setUserCar(ArrayList<Car> userCar) {
+    public User setUserCar(Car userCar) {
         this.userCar = userCar;
         return this;
     }
@@ -185,7 +184,7 @@ public class User implements Parcelable {
         dest.writeString(this.email);
         dest.writeString(this.phoneNumber);
         dest.writeString(this.userPassword);
-        dest.writeArray(this.userCar.toArray());
+        //dest.writeArray(this.userCar.toArray());
         dest.writeArray(this.userTests.toArray());
         dest.writeArray(this.userActivationDates.toArray());
         dest.writeBoolean(this.active);

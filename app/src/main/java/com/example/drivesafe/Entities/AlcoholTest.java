@@ -1,41 +1,54 @@
 package com.example.drivesafe.Entities;
 
-import com.example.drivesafe.R;
-
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AlcoholTest {
+    private String testId;
+    private String carLicenseNumber;
+    private Date testTimestamp;
+    private AlcoholTestResult result;
 
-    //private int iconId;
-    private boolean result;
-    private String date;
-    //private String info;
+    public AlcoholTest() {}
 
-    public AlcoholTest(){}
-
-    public AlcoholTest(boolean result){
-        Date aDate = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy HH:mm");
-        this.date = formatter.format(aDate);
-        this.result = result;
+    public String getTestId() {
+        return testId;
     }
 
-    public boolean getResult() {
+    public void setTestId(String testId) {
+        this.testId = testId;
+    }
+
+    public String getCarLicenseNumber() {
+        return carLicenseNumber;
+    }
+
+    public void setCarLicenseNumber(String carLicenseNumber) {
+        this.carLicenseNumber = carLicenseNumber;
+    }
+
+    public Date getTestTimestamp() {
+        return testTimestamp;
+    }
+
+    public void setTestTimestamp(Date testTimestamp) {
+        this.testTimestamp = testTimestamp;
+    }
+
+    public AlcoholTestResult getResult() {
         return result;
     }
 
-    public AlcoholTest setResult(boolean passed) {
-        result = passed;
-        return this;
+    public void setResult(AlcoholTestResult result) {
+        this.result = result;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public AlcoholTest setDate(String date) {
-        this.date = date;
-        return this;
+    @Override
+    public String toString() {
+        return "AlcoholTestEntity{" +
+                "testId='" + testId + '\'' +
+                ", carLicenseNumber='" + carLicenseNumber + '\'' +
+                ", testTimestamp=" + testTimestamp +
+                ", result=" + result +
+                '}';
     }
 }

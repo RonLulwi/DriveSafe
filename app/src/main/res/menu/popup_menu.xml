@@ -23,6 +23,11 @@
         android:icon="@drawable/ic_alcohol_test"
         app:showAsAction="withText"/>
     <item
+        android:id="@+id/popup_menu_bypassAttempt"
+        android:title="Bypass Attempt"
+        android:icon="@drawable/ic_bypass"
+        app:showAsAction="withText"/>
+    <item
         android:id="@+id/popup_menu_logout"
         android:title="Log Out"
         android:icon="@drawable/ic_logout"
