@@ -1,8 +1,5 @@
 https://user-images.githubusercontent.com/95926852/220778782-dbfd5d27-32ca-4288-9f4a-779545df407b.mp4
 
-### נא לקרוא את קובץ הבא לפני הבדיקה
-[ReadMe.docx](https://github.com/RonLulwi/DriveSafe-application/files/10808788/ReadMe.docx)
-
 # Introduction
 
 ### The purpose of the system
@@ -12,18 +9,12 @@ https://user-images.githubusercontent.com/95926852/220778782-dbfd5d27-32ca-4288-
 The application will provide the parent with control over the "safe driving" system remotely, using this application the parent will be able to turn the system on and off, receive real-time alerts and be aware of attempts to bypass the system by the driver.
 
 # Upcoming features
-1. Activate and Deactivate "DRIVE SAFE" system
-2. Secure Signup Authentication via SMS 
-3. Alcohol test history
-4. Login with password & Email or fingerprint
-5. Real time notifications - Regarding the alcohol tests performed and detection of attempted bypassing of the system
-6. Activation scheduler - Plan the system operation times
-7. Get the car precise geographic location
-
-# Firebase server's uses
-1. Transfer data between DriveSafe system and the client
-2. Firebase Auth to manage users
-3. Transfer and save images
+1. Secure Signup Authentication via SMS 
+2. Alcohol test history
+3. Login with fingerprint
+4. Real time notifications - Regarding the alcohol tests performed and detection of attempted bypassing of the system
+5. Activation scheduler - Plan the system operation times
+6. Get the car precise geographic location
 
 # Screen Flow - Mockup
 ### Signup
