@@ -1,5 +1,7 @@
 https://user-images.githubusercontent.com/95926852/220778782-dbfd5d27-32ca-4288-9f4a-779545df407b.mp4
 
+### נא לקרוא את קובץ הבא לפני הבדיקה
+[ReadMe.docx](https://github.com/RonLulwi/DriveSafe-application/files/10808788/ReadMe.docx)
 
 # Introduction
 
